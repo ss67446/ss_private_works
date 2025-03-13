@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+    <meta charSet="UTF-8">
+    <title>作业十-cx</title>
+    <style>
+
+        tr:nth-child(even) {
+            background-color: green;
+        }
+        tr:nth-child(odd) {
+            background-color: yellow;
+        }
+        tr:last-child {
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+	
+报名系统 姓名 <input type="text" id="xm"><br>
+<input type="button" id="add" value="添加名字" onclick="f()">
+	
+<div id="ff"></div>
+	
+<script>
+
+    var t = "<table border='1'>"
+	
+    function f() {
+		
+        var n=document.getElementById('xm').value;
+        var today = new Date()
+		
+        var y = today.getFullYear()
+        var mon = today.getMonth() + 1
+        var d = today.getDate()
+		
+        var hour = today.getHours()
+        var min = today.getMinutes()	
+        var sec = today.getSeconds()
+		
+		function checkTime(sec){
+			if (sec<10)
+				{sec="0" + sec}
+			return sec
+		}
+		
+		sec=checkTime(sec)
+		
+        var w;
+		
+        if (hour > 12) w = "下午 "
+        else w = "上午 "
+		
+        var time = y + "/" + mon + "/" + d + "/" + w + hour + ":" + min + ":" + sec;
+        t=t+ "<tr><td>" + n +"</td><td>"+time+"</td></tr>";
+        document.getElementById("ff").innerHTML =t;
+
+
+    }
+
+</script>
+	
+</body>
+</html>
